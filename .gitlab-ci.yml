@@ -1,0 +1,23 @@
+# Define stages
+stages:
+  - deploy
+
+deploy-to-github:
+  stage: deploy
+  script:
+    - apk add --no-cache git
+    - git config --global http.sslVerify false
+    - git config --global user.email "sizing-reserves-bot@baltic-rcc.eu"
+    - git config --global user.name "sizing-reserves-bot"
+    - git clone --depth 1 --branch release --single-branch https://package-distribution:$GITLAB_TOKEN@git.rsc-gitlab.elering.sise/rsc/services/sizing-of-reserv.git repo
+    - cd repo
+    - git checkout --orphan "release-distribution"
+    - git add .
+    - git commit -m "Source code distribution with cleaned history"
+    - git remote add github https://$GITHUB_TOKEN@$REPOSITORY
+    - git push --force --set-upstream github release-distribution
+  only:
+    - release
+  when: manual
+
+
