@@ -1,0 +1,32 @@
+[[source]]
+url = "https://artifactory.elering.sise/artifactory/api/pypi/pssepip/simple/"
+verify_ssl = false
+name = "local_pypi"
+
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[[source]]
+name = "rcc_common_tools"
+url = "https://pip-access-token:glpat-LyG8dsXKxKZTZGx_z5C_@git.rsc-gitlab.elering.sise/api/v4/projects/25/packages/pypi/simple"
+verify_ssl = false
+
+[packages]
+pytz = "*"
+matplotlib = "*"
+PyYAML = "*"
+pandas = "*"
+aniso8601 = "*"
+fpdf2 = "*"
+numpy = "1.26.4"
+ndjson = "*"
+elasticsearch = "*"
+python-dateutil = "*"
+minio = "*"
+rcc-common-tools = {version="*", index="rcc_common_tools"}
+tabulate = "*"
+
+[requires]
+python_version = "3.11"
