@@ -27,6 +27,7 @@ python-dateutil = "*"
 minio = "*"
 rcc-common-tools = {version="*", index="rcc_common_tools"}
 tabulate = "*"
+spicy = "*"
 
 [requires]
 python_version = "3.11"
